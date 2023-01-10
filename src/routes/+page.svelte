@@ -49,7 +49,7 @@
 <div class="flex flex-col justify-center items-center w-screen h-screen p-6">
     <div class="flex flex-col justify-center align-center w-full lg:w-1/2 md:w-1/3 h-[80%] lg:h-1/2 md:h-1/2 items-center">
         <div class="w-full h-full flex flex-col justify-center items-center">
-            <img alt="me" src="/headshot.png" width="128" height="128"
+            <img alt="me" title="me" src="/headshot.png" width="128" height="128"
                  class="shadow rounded-full max-w-full h-auto align-middle border-none"/>
             <h1 class="text-center text-xl font-[600] mt-3">Aaron Mamparo</h1>
             <div class="w-full h-1/4 mt-5 lg:mt-3 md:mt-3">
@@ -68,12 +68,13 @@
             </div>
         </div>
     </div>
-    <footer class="text-center text-sm fixed inset-x-0 bottom-5 text-gray-600">
+    <footer class="text-center text-sm fixed inset-x-0 bottom-4 text-gray-500">
         Copyright © {new Date().getFullYear()} Aaron Mamparo
         &nbsp;|&nbsp;
-        <a class="text-gray-500 font-medium" href="mailto:aaronmamparo@gmail.com" target="_blank">Contact Me</a>
+        <a class="text-gray-600 font-medium" href="mailto:aaronmamparo@gmail.com" target="_blank">Contact Me</a>
     </footer>
-</div>
-<style>
 
-</style>
+    <!-- for mastodon verification -->
+    <a rel="me" style="display: none" href="https://mstdn.social/@aaronmamparo">Mastodon</a>
+
+</div>
