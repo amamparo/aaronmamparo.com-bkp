@@ -11,6 +11,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    env:
+      STACK_NAME: aaronmamparo-dot-com
+      DOMAIN_NAME: aaronmamparo.com
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -25,17 +28,14 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - name: Deploy stack
-        run: |
-          cd aws
-          npm run deploy:stack
+      - run: npm run deploy:stack --workspace=aws
       - run: npm run build
-      - run: aws s3 sync --delete build s3://aaronmamparo.com
+      - run: aws s3 sync --delete build s3://${DOMAIN_NAME}
       - name: Clear cloudfront cache
         run: |
           export DISTRIBUTION_ID=$(
             aws cloudformation describe-stacks \
-              --stack-name aaronmamparo-dot-com \
+              --stack-name ${STACK_NAME} \
               --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
               --output text
           )

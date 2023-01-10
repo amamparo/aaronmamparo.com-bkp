@@ -6,11 +6,11 @@ import {ARecord, HostedZone, RecordTarget} from "aws-cdk-lib/aws-route53";
 import {S3Origin} from "aws-cdk-lib/aws-cloudfront-origins";
 import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";
 
-const domainName = 'aaronmamparo.com'
+const domainName = process.env.DOMAIN_NAME as string
 
 class MyStack extends Stack {
     constructor(scope: App) {
-        super(scope, 'aaronmamparo-dot-com', {
+        super(scope, process.env.STACK_NAME, {
             env: {
                 region: process.env.CDK_DEFAULT_REGION,
                 account: process.env.CDK_DEFAULT_ACCOUNT
