@@ -1,4 +1,4 @@
-import {App, Stack} from 'aws-cdk-lib';
+import {App, CfnOutput, Stack} from 'aws-cdk-lib';
 import {BlockPublicAccess, Bucket} from 'aws-cdk-lib/aws-s3';
 import {Distribution, OriginAccessIdentity, ViewerProtocolPolicy} from "aws-cdk-lib/aws-cloudfront";
 import {Certificate, CertificateValidation} from "aws-cdk-lib/aws-certificatemanager";
@@ -47,6 +47,10 @@ class MyStack extends Stack {
             target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
             zone: hostedZone,
             recordName: domainName
+        });
+
+        new CfnOutput(this, 'DistributionId', {
+            value: distribution.distributionId
         });
     }
 }
