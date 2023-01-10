@@ -2,7 +2,7 @@ import {App, CfnOutput, Stack} from 'aws-cdk-lib';
 import {BlockPublicAccess, Bucket} from 'aws-cdk-lib/aws-s3';
 import {Distribution, OriginAccessIdentity, ViewerProtocolPolicy} from "aws-cdk-lib/aws-cloudfront";
 import {Certificate, CertificateValidation} from "aws-cdk-lib/aws-certificatemanager";
-import {ARecord, HostedZone, RecordTarget} from "aws-cdk-lib/aws-route53";
+import {ARecord, CnameRecord, HostedZone, RecordTarget} from "aws-cdk-lib/aws-route53";
 import {S3Origin} from "aws-cdk-lib/aws-cloudfront-origins";
 import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";
 
@@ -44,10 +44,16 @@ class MyStack extends Stack {
         });
 
         new ARecord(this, 'AliasRecord', {
-            target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
             zone: hostedZone,
-            recordName: domainName
+            recordName: domainName,
+            target: RecordTarget.fromAlias(new CloudFrontTarget(distribution))
         });
+
+        new CnameRecord(this, 'WwwRecord', {
+            zone: hostedZone,
+            recordName: `www.${domainName}`,
+            domainName
+        })
 
         new CfnOutput(this, 'DistributionId', {
             value: distribution.distributionId
