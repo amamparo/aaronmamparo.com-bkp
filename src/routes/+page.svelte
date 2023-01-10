@@ -73,8 +73,4 @@
         &nbsp;|&nbsp;
         <a class="text-gray-600 font-medium" href="mailto:aaronmamparo@gmail.com" target="_blank">Contact Me</a>
     </footer>
-
-    <!-- for mastodon verification -->
-    <a rel="me" style="display: none" href="https://mstdn.social/@aaronmamparo">Mastodon</a>
-
 </div>
