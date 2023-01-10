@@ -28,8 +28,7 @@ jobs:
       - name: Deploy stack
         run: |
           cd aws
-          npm i -g aws-cdk
-          cdk deploy --require-approval never --verbose
+          npm run deploy:stack
       - name: Deploy site
         run: |
           npm run build
