@@ -32,7 +32,7 @@ jobs:
       - run: npm run build
       - run: aws s3 sync --delete build s3://aaronmamparo.com
       - name: Clear cloudfront cache
-        run:
+        run: |
           export DISTRIBUTION_ID=$(
             aws cloudformation describe-stacks \
               --stack-name aaronmamparo-dot-com \
