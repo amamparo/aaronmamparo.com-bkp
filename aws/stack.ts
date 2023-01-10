@@ -7,6 +7,7 @@ import {S3Origin} from "aws-cdk-lib/aws-cloudfront-origins";
 import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";
 
 const domainName = process.env.DOMAIN_NAME as string
+const wwwDomainName = `www.${domainName}`
 
 class MyStack extends Stack {
     constructor(scope: App) {
@@ -29,7 +30,10 @@ class MyStack extends Stack {
 
         const certificate = new Certificate(this, 'Certificate', {
             domainName,
-            validation: CertificateValidation.fromDns(hostedZone)
+            validation: CertificateValidation.fromDns(hostedZone),
+            subjectAlternativeNames: [
+                wwwDomainName
+            ]
         });
 
         const distribution = new Distribution(this, 'Distribution', {
@@ -39,7 +43,7 @@ class MyStack extends Stack {
                 viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS
             },
             defaultRootObject: 'index.html',
-            domainNames: [domainName],
+            domainNames: [domainName, wwwDomainName],
             certificate
         });
 
@@ -51,7 +55,7 @@ class MyStack extends Stack {
 
         new CnameRecord(this, 'WwwRecord', {
             zone: hostedZone,
-            recordName: `www.${domainName}`,
+            recordName: wwwDomainName,
             domainName
         })
 
