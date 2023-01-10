@@ -53,7 +53,7 @@
                  class="shadow rounded-full max-w-full h-auto align-middle border-none"/>
             <h1 class="text-center text-xl font-[600] mt-3">Aaron Mamparo</h1>
             <div class="w-full h-1/4 mt-5 lg:mt-3 md:mt-3">
-                <div class="flex flex-wrap w-full  gap-5 justify-center items-top">
+                <div class="flex flex-wrap w-full gap-5 justify-center items-top">
                     {#each socials as {url, icon, title}}
                         <div class="text-center items-center cursor-pointer">
                             <a href={url} target="_blank" rel="noopener noreferrer me">
