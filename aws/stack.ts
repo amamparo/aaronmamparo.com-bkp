@@ -31,9 +31,7 @@ class MyStack extends Stack {
         const certificate = new Certificate(this, 'Certificate', {
             domainName,
             validation: CertificateValidation.fromDns(hostedZone),
-            subjectAlternativeNames: [
-                wwwDomainName
-            ]
+            subjectAlternativeNames: [`*.${domainName}`]
         });
 
         const distribution = new Distribution(this, 'Distribution', {
