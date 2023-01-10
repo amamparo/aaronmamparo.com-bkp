@@ -29,8 +29,14 @@ jobs:
         run: |
           cd aws
           npm run deploy:stack
-      - name: Deploy site
-        run: |
-          npm run build
-          aws s3 sync --delete build s3://aaronmamparo.com
-#          aws cloudfront create-invalidation --distribution-id fodfhdkfhdkfh --paths "/*"
+      - run: npm run build
+      - run: aws s3 sync --delete build s3://aaronmamparo.com
+      - name: Clear cloudfront cache
+        run:
+          export DISTRIBUTION_ID=$(
+            aws cloudformation describe-stacks \
+              --stack-name aaronmamparo-dot-com \
+              --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
+              --output text
+          )
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
