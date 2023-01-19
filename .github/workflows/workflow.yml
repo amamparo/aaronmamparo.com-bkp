@@ -11,6 +11,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    environment: production
     env:
       STACK_NAME: aaronmamparo-dot-com
       DOMAIN_NAME: aaronmamparo.com
