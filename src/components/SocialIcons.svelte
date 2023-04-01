@@ -38,10 +38,6 @@
       icon: siLinkedin
     },
     {
-      url: 'https://mstdn.social/@aaronmamparo',
-      icon: siMastodon
-    },
-    {
       url: 'https://soundcloud.com/aaronmamparo',
       icon: siSoundcloud
     },
