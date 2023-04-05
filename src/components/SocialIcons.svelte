@@ -22,6 +22,10 @@
       icon: siGithub
     },
     {
+      url: 'https://www.goodreads.com/user/show/104803730-aaron-mamparo',
+      icon: siGoodreads
+    },
+    {
       url: 'https://www.instagram.com/aaronmamparo/',
       icon: siInstagram
     },
@@ -40,6 +44,10 @@
     {
       url: 'https://open.spotify.com/user/ddnbjtkco6k0krar7oikgoaua',
       icon: siSpotify
+    },
+    {
+      url: 'https://twitter.com/__aaron_m__',
+      icon: siTwitter
     }
   ]
 </script>
