@@ -7,8 +7,7 @@
     siLastdotfm,
     siLinkedin,
     siSoundcloud,
-    siSpotify,
-    siTwitter
+    siSpotify
   } from 'simple-icons';
   import SocialIcon from './SocialIcon.svelte';
 
@@ -44,10 +43,6 @@
     {
       url: 'https://open.spotify.com/user/ddnbjtkco6k0krar7oikgoaua',
       icon: siSpotify
-    },
-    {
-      url: 'https://twitter.com/__aaron_m__',
-      icon: siTwitter
     }
   ]
 </script>
