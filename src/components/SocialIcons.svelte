@@ -13,8 +13,8 @@
 
   const socials = [
     {
-      url: 'https://www.discogs.com/user/aaronmamparo/collection',
-      icon: siDiscogs
+      url: 'https://www.linkedin.com/in/aaronmamparo/',
+      icon: siLinkedin
     },
     {
       url: 'https://github.com/amamparo',
@@ -31,18 +31,6 @@
     {
       url: 'https://www.last.fm/user/amamparo',
       icon: siLastdotfm
-    },
-    {
-      url: 'https://www.linkedin.com/in/aaronmamparo/',
-      icon: siLinkedin
-    },
-    {
-      url: 'https://soundcloud.com/aaronmamparo',
-      icon: siSoundcloud
-    },
-    {
-      url: 'https://open.spotify.com/user/ddnbjtkco6k0krar7oikgoaua',
-      icon: siSpotify
     }
   ]
 </script>
